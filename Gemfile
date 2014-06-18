@@ -47,7 +47,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'rb-fsevent' #if `uname` =~ /Darwin/
 end
 
 # Use ActiveModel has_secure_password
