@@ -1,0 +1,14 @@
+= form_for(@service) do |s|
+= if @service.errors.any?
+#errorexplanation
+  %h2
+    = pluralize(@service.errors.count, "error")
+    prohibited this task from being saved:
+  %ul
+    = pluralize(@service.errors.full_messages.each do |msg|)
+    %li = msg
+    end
+  end
+.actions
+  s.submit
+= end

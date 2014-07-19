@@ -1,0 +1,8 @@
+%div.table
+  %div.heading
+    %div.cell
+      Service Name
+  - @services.each do |s|
+    %div.row
+      %div.cell
+      = s.name

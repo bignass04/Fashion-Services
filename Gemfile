@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -25,7 +25,6 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 
 # Use haml rails
-gem 'haml'
 gem 'haml-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -45,8 +44,11 @@ end
 group :development, :test do
   # Rspec for testing
   gem 'spring-commands-rspec'
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'guard-rspec'
+  gem 'growl'
+  gem 'factory_girl_rails'
   gem 'rb-fsevent' #if `uname` =~ /Darwin/
 end
 
