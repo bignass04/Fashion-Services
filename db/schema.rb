@@ -11,20 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729010607) do
+ActiveRecord::Schema.define(version: 20140801025135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "city"
+    t.integer  "location_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", force: true do |t|
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
+    t.integer  "company_id"
     t.string   "address_1"
     t.string   "address_2"
     t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +43,12 @@ ActiveRecord::Schema.define(version: 20140729010607) do
   create_table "customers_services", id: false, force: true do |t|
     t.integer "customer_id", null: false
     t.integer "service_id",  null: false
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "services", force: true do |t|

@@ -4,7 +4,12 @@ class ServicesController < ApplicationController
   end
   
   def show
+    @service = set_task
     
+    respond_to do |format|
+      format.html { redirect_to @service }
+      format.json { render action: 'show', status: :created, location: @service }
+    end
   end
   
   def new
@@ -16,13 +21,19 @@ class ServicesController < ApplicationController
     
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Task was successfully created.' }
+        format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render action: 'show', status: :created, location: @service }
       else
         format.html { render action: 'new' }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def update
+    service = set_task
+    service.update!(service_params)
+    redirect_to service
   end
   
   def destory
@@ -41,6 +52,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params[:service]
+      params.require(:service).permit(:name)
     end
 end

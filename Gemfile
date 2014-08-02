@@ -50,6 +50,10 @@ group :development, :test do
   gem 'growl'
   gem 'factory_girl_rails'
   gem 'rb-fsevent' #if `uname` =~ /Darwin/
+  gem 'cucumber'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-nav'
 end
 
 # Use ActiveModel has_secure_password

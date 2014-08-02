@@ -4,6 +4,9 @@ Fashionservices::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :services
+  resources :customers
+  resources :companies
+  
   root 'services#index'
 
   # Example of regular route:
