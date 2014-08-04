@@ -47,7 +47,6 @@ group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'growl'
   gem 'factory_girl_rails'
   gem 'rb-fsevent' #if `uname` =~ /Darwin/
   gem 'cucumber'

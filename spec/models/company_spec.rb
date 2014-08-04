@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Company do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "has a valid factory" do
+  	company = build(:company)
+  	binding.pry
+  	company.should be_valid
+  end
 end

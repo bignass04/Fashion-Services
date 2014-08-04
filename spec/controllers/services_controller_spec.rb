@@ -13,13 +13,12 @@ describe ServicesController do
     it "renders the index template" do
       get :index
       expect(response).to render_template(:index)
-      expect(response).to redirect_to(services_index_path)
       expect(response.status).to eq(200)
     end
   end
   
   describe "GET new" do
-    it "renders the form to create a service" do
+    it "renders a form to create a service" do
       get :new
       expect(response).to render_template(:new)
       expect(response).to redirect_to(services_index_path)
@@ -27,8 +26,10 @@ describe ServicesController do
   end
   
   describe "POST create" do
-    it "creates a new service" do
-      get :create
+    subject { post :create, service: create(:service) }
+    
+    it "a new service" do
+      post :create
     end
   end
 end

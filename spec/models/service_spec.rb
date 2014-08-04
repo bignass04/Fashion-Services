@@ -9,12 +9,12 @@ describe Service do
     @service.should be_valid
   end
   
-  it "will say a String-based name is valid" do
+  it "is valid with a String as 'name'" do
     expect(@service.name).to be_kind_of(String)
     expect(@service.name).to eq("makeup")
   end
   
-  it "will reject a numeric name" do
+  it "is invalid a numeric name" do
     expect(Service.new(name: 23432)).to_not be_valid
   end
   
@@ -22,6 +22,6 @@ describe Service do
     service_blank = build(:service, name: "")
     
     expect(service_blank.name).to eq("")
-    service_blank.name.should_not be_valid
+    service_blank.should_not be_valid
   end
 end
