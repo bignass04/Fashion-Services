@@ -4,4 +4,6 @@ FactoryGirl.define do
   factory :location do
     state "DC"
   end
+
+  location = FactoryGirl.create(:location)
 end

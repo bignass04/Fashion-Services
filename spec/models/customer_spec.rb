@@ -5,9 +5,9 @@ describe Customer do
   	#binding.pry
   	@valid_customer = build(:customer, :valid_names)
   	@invalid_customer_list = {
-  		:customer_num => build(:customer, :number_name),
-  		:customer_invalid_sym => build(:customer, :symbol_name),
-  		:customer_valid_sym => build(:customer, :valid_names_symbols)
+  		customer_num: build(:customer, :number_name),
+  		customer_invalid_sym: build(:customer, :symbol_name),
+  		customer_valid_sym: build(:customer, :valid_names_symbols)
   	}
   end
 

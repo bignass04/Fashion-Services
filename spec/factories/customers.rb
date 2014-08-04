@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :customer do
+    phone 5188675309
+    email { "#{first_name}.#{last_name}@gmail.com" }
     address_1 "238 Hampshire Ave"
     address_2 "Apt 1"
     city "Washington"
@@ -32,4 +34,6 @@ FactoryGirl.define do
         last_name "O' Neill"
     end
   end
+
+  customer = FactoryGirl.create(:customer, :valid_names)
 end
