@@ -6,7 +6,6 @@ class CreateCompanies < ActiveRecord::Migration
       t.string :address_2
       t.string :city
       t.integer :location_id
-      t.integer :service_id
 
       t.timestamps
     end

@@ -6,6 +6,7 @@ Fashionservices::Application.routes.draw do
   resources :services
   resources :customers
   resources :companies
+  resources :locations
   
   root 'services#index'
 

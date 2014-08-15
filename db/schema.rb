@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804144501) do
+ActiveRecord::Schema.define(version: 20140812204107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,15 @@ ActiveRecord::Schema.define(version: 20140804144501) do
     t.string   "address_2"
     t.string   "city"
     t.integer  "location_id"
-    t.integer  "service_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
-    t.integer  "phone"
+    t.integer  "phone",       limit: 8
+  end
+
+  create_table "companies_customers", id: false, force: true do |t|
+    t.integer "customer_id", null: false
+    t.integer "company_id",  null: false
   end
 
   create_table "customers", force: true do |t|
@@ -41,18 +45,27 @@ ActiveRecord::Schema.define(version: 20140804144501) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
-    t.integer  "phone"
-  end
-
-  create_table "customers_services", id: false, force: true do |t|
-    t.integer "customer_id", null: false
-    t.integer "service_id",  null: false
+    t.integer  "phone",       limit: 8
+    t.string   "title"
+    t.string   "prefix"
+    t.string   "suffix"
   end
 
   create_table "locations", force: true do |t|
     t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "prices", force: true do |t|
+    t.integer  "company_id"
+    t.integer  "customer_id"
+    t.integer  "service_id"
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "amount_cents",    default: 0,     null: false
+    t.string   "amount_currency", default: "USD", null: false
   end
 
   create_table "services", force: true do |t|

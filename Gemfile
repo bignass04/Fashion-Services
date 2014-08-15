@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '~> 4.0.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -12,8 +12,9 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
+# Use CoffeeScript and angularJS for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+gem 'angularjs-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -24,9 +25,6 @@ gem 'jquery-rails'
 # Use bootstrap for html
 gem 'twitter-bootstrap-rails'
 
-# Use haml rails
-gem 'haml-rails'
-
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -36,6 +34,9 @@ gem 'jbuilder', '~> 1.2'
 # FOR HEROKU
 gem 'rails_12factor'
 
+# For money objects
+gem 'money-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -43,16 +44,22 @@ end
 
 group :development, :test do
   # Rspec for testing
-  gem 'spring-commands-rspec'
-  gem 'capybara'
+  gem 'listen'
   gem 'rspec-rails'
-  gem 'guard-rspec'
   gem 'factory_girl_rails'
-  gem 'rb-fsevent' #if `uname` =~ /Darwin/
-  gem 'cucumber'
+  gem 'faker'
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'pry-nav'
+end
+
+group :test do
+  gem 'cucumber'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'rb-fsevent' #if `uname` =~ /Darwin/
+  gem 'capybara'
+  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password

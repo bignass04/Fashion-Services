@@ -39,7 +39,7 @@ class ServicesController < ApplicationController
   def destory
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url }
+      format.html { redirect_to services_path }
       format.json { head :no_content }
     end
   end
